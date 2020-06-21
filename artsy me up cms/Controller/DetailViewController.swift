@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
         if let result = item {
             itemTitle.text = result.title
             itemPrice.text = String(result.price)
-            itemStock.text = String(result.price)
+            itemStock.text = String(result.stock)
             itemDesc.text = result.description
             itemPhoto.image = result.photo
         }
