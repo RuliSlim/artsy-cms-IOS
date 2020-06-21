@@ -15,9 +15,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //        ganti text back to list
         self.navigationItem.title = "List"
-        //        get items
-//        ItemTableViewCell.dataSource = self
+        //        table items
         itemTableView.dataSource = self
+        //        connect to detail controller
+        itemTableView.delegate = self
+        
         itemTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
 
     }
@@ -42,7 +44,16 @@ extension ViewController: UITableViewDataSource {
         
         // Kode ini digunakan untuk membuat imageView memiliki frame bound/lingkaran
         cell.photoItem.layer.cornerRadius = cell.photoItem.frame.height / 2
+        cell.photoItem.layer.borderColor = UIColor.black.cgColor
         cell.photoItem.clipsToBounds = true
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detail = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        detail.item = items[indexPath.row]
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 }
