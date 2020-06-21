@@ -11,7 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        //        let navbar = UINavigationBarAppearance()
+        //        navbar.shadowColor = .clear
+        //        print(navbar)
+        let backBarButtton = UIBarButtonItem(title: "List", style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backBarButtton
+        print(UINavigationBarAppearance.init())
     }
 
 

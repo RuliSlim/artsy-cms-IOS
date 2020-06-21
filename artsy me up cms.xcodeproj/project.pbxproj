@@ -13,6 +13,8 @@
 		84251E86249EF9A8008DBF38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84251E84249EF9A8008DBF38 /* Main.storyboard */; };
 		84251E88249EF9A9008DBF38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84251E87249EF9A9008DBF38 /* Assets.xcassets */; };
 		84251E8B249EF9A9008DBF38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84251E89249EF9A9008DBF38 /* LaunchScreen.storyboard */; };
+		847D98D5249F1E2400C3832E /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D98D4249F1E2400C3832E /* DetailController.swift */; };
+		847D98D7249F1E3E00C3832E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D98D6249F1E3E00C3832E /* ProfileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		84251E87249EF9A9008DBF38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84251E8A249EF9A9008DBF38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84251E8C249EF9A9008DBF38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847D98D4249F1E2400C3832E /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		847D98D6249F1E3E00C3832E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				84251E87249EF9A9008DBF38 /* Assets.xcassets */,
 				84251E89249EF9A9008DBF38 /* LaunchScreen.storyboard */,
 				84251E8C249EF9A9008DBF38 /* Info.plist */,
+				847D98D4249F1E2400C3832E /* DetailController.swift */,
+				847D98D6249F1E3E00C3832E /* ProfileController.swift */,
 			);
 			path = "artsy me up cms";
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D98D7249F1E3E00C3832E /* ProfileController.swift in Sources */,
+				847D98D5249F1E2400C3832E /* DetailController.swift in Sources */,
 				84251E83249EF9A8008DBF38 /* ViewController.swift in Sources */,
 				84251E7F249EF9A8008DBF38 /* AppDelegate.swift in Sources */,
 				84251E81249EF9A8008DBF38 /* SceneDelegate.swift in Sources */,
@@ -215,7 +223,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -269,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
