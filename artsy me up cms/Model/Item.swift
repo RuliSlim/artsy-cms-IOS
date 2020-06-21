@@ -14,3 +14,13 @@ struct Item {
     var description: String
     var photo: UIImage
 }
+
+struct Product: Decodable, Identifiable {
+    var id: Int
+    var name: String
+    var image: URL
+    var price: String
+    var stock: Int
+    var createdAt: String
+    var updatedAt: String
+}

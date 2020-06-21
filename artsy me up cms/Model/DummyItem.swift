@@ -20,3 +20,4 @@ var items: [Item] = [
     Item(title: "Miku", price: 1300000, stock: 40, description: "FAG Miku", photo: UIImage(named: "miku")!),
     Item(title: "Gourai", price: 1300000, stock: 40, description: "FAG Gourai", photo: UIImage(named: "gourai")!)
 ]
+
