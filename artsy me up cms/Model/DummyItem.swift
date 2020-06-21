@@ -17,5 +17,6 @@ var items: [Item] = [
     Item(title: "Gaogaigar", price: 1300000, stock: 40, description: "FAG Gaogaigar", photo: UIImage(named: "gaogaigar")!),
     Item(title: "Xf-3", price: 1300000, stock: 40, description: "FAG Xf-3", photo: UIImage(named: "xf-3")!),
     Item(title: "Zelfikar", price: 1300000, stock: 40, description: "FAG Zelfikar", photo: UIImage(named: "zelfikar")!),
-    Item(title: "Miku", price: 1300000, stock: 40, description: "FAG Miku", photo: UIImage(named: "miku")!)
+    Item(title: "Miku", price: 1300000, stock: 40, description: "FAG Miku", photo: UIImage(named: "miku")!),
+    Item(title: "Gourai", price: 1300000, stock: 40, description: "FAG Gourai", photo: UIImage(named: "gourai")!),
 ]

@@ -19,6 +19,7 @@
 		84AEA87E249F3AB4005F0449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251E7E249EF9A8008DBF38 /* AppDelegate.swift */; };
 		84AEA885249F4FE9005F0449 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA883249F4FE9005F0449 /* DetailViewController.swift */; };
 		84AEA886249F4FE9005F0449 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AEA884249F4FE9005F0449 /* DetailViewController.xib */; };
+		84AEA888249F636D005F0449 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA887249F636D005F0449 /* ProfileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		84AEA883249F4FE9005F0449 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		84AEA884249F4FE9005F0449 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		84AEA887249F636D005F0449 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				84251E82249EF9A8008DBF38 /* ViewController.swift */,
 				84AEA883249F4FE9005F0449 /* DetailViewController.swift */,
 				84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */,
+				84AEA887249F636D005F0449 /* ProfileController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */,
 				84AEA879249F2FEB005F0449 /* Item.swift in Sources */,
 				84251E81249EF9A8008DBF38 /* SceneDelegate.swift in Sources */,
+				84AEA888249F636D005F0449 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,6 @@ class ViewController: UIViewController {
 
     }
     
-    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -44,8 +43,9 @@ extension ViewController: UITableViewDataSource {
         
         // Kode ini digunakan untuk membuat imageView memiliki frame bound/lingkaran
         cell.photoItem.layer.cornerRadius = cell.photoItem.frame.height / 2
-        cell.photoItem.layer.borderColor = UIColor.black.cgColor
         cell.photoItem.clipsToBounds = true
+        cell.photoItem.layer.borderColor = UIColor.systemPink.cgColor
+        cell.photoItem.layer.borderWidth = 2
         return cell
     }
 }
