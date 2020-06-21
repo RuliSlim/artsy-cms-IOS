@@ -32,16 +32,13 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Digunakan untuh menghubungkan cell dengan identifier "HeroCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
         
-        // Menetapkan nilai hero ke view di dalam cell
         let item = items[indexPath.row]
         cell.titleItem.text = item.title
         cell.priceItem.text = String(item.price)
         cell.photoItem.image = item.photo
         
-        // Kode ini digunakan untuk membuat imageView memiliki frame bound/lingkaran
         cell.photoItem.layer.cornerRadius = cell.photoItem.frame.height / 2
         cell.photoItem.clipsToBounds = true
         cell.photoItem.layer.borderColor = UIColor.systemPink.cgColor
