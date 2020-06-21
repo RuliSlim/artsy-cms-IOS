@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84251E7F249EF9A8008DBF38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251E7E249EF9A8008DBF38 /* AppDelegate.swift */; };
 		84251E81249EF9A8008DBF38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251E80249EF9A8008DBF38 /* SceneDelegate.swift */; };
 		84251E83249EF9A8008DBF38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251E82249EF9A8008DBF38 /* ViewController.swift */; };
 		84251E86249EF9A8008DBF38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84251E84249EF9A8008DBF38 /* Main.storyboard */; };
@@ -15,6 +14,11 @@
 		84251E8B249EF9A9008DBF38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84251E89249EF9A9008DBF38 /* LaunchScreen.storyboard */; };
 		847D98D5249F1E2400C3832E /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D98D4249F1E2400C3832E /* DetailController.swift */; };
 		847D98D7249F1E3E00C3832E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D98D6249F1E3E00C3832E /* ProfileController.swift */; };
+		84AEA877249F2FDD005F0449 /* DummyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA876249F2FDD005F0449 /* DummyItem.swift */; };
+		84AEA879249F2FEB005F0449 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA878249F2FEB005F0449 /* Item.swift */; };
+		84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */; };
+		84AEA87D249F3863005F0449 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */; };
+		84AEA87E249F3AB4005F0449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251E7E249EF9A8008DBF38 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		84251E8C249EF9A9008DBF38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847D98D4249F1E2400C3832E /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		847D98D6249F1E3E00C3832E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		84AEA876249F2FDD005F0449 /* DummyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyItem.swift; sourceTree = "<group>"; };
+		84AEA878249F2FEB005F0449 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +68,53 @@
 		84251E7D249EF9A8008DBF38 /* artsy me up cms */ = {
 			isa = PBXGroup;
 			children = (
-				84251E7E249EF9A8008DBF38 /* AppDelegate.swift */,
-				84251E80249EF9A8008DBF38 /* SceneDelegate.swift */,
-				84251E82249EF9A8008DBF38 /* ViewController.swift */,
-				84251E84249EF9A8008DBF38 /* Main.storyboard */,
+				84AEA875249F2F9F005F0449 /* Base */,
+				84AEA874249F2F7D005F0449 /* View */,
+				84AEA873249F2F4C005F0449 /* Controller */,
+				84AEA872249F2F31005F0449 /* Model */,
 				84251E87249EF9A9008DBF38 /* Assets.xcassets */,
-				84251E89249EF9A9008DBF38 /* LaunchScreen.storyboard */,
 				84251E8C249EF9A9008DBF38 /* Info.plist */,
-				847D98D4249F1E2400C3832E /* DetailController.swift */,
-				847D98D6249F1E3E00C3832E /* ProfileController.swift */,
 			);
 			path = "artsy me up cms";
+			sourceTree = "<group>";
+		};
+		84AEA872249F2F31005F0449 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84AEA876249F2FDD005F0449 /* DummyItem.swift */,
+				84AEA878249F2FEB005F0449 /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84AEA873249F2F4C005F0449 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84251E82249EF9A8008DBF38 /* ViewController.swift */,
+				847D98D4249F1E2400C3832E /* DetailController.swift */,
+				847D98D6249F1E3E00C3832E /* ProfileController.swift */,
+				84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84AEA874249F2F7D005F0449 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84251E84249EF9A8008DBF38 /* Main.storyboard */,
+				84251E89249EF9A9008DBF38 /* LaunchScreen.storyboard */,
+				84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84AEA875249F2F9F005F0449 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				84251E7E249EF9A8008DBF38 /* AppDelegate.swift */,
+				84251E80249EF9A8008DBF38 /* SceneDelegate.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AEA87D249F3863005F0449 /* ItemTableViewCell.xib in Resources */,
 				84251E8B249EF9A9008DBF38 /* LaunchScreen.storyboard in Resources */,
 				84251E88249EF9A9008DBF38 /* Assets.xcassets in Resources */,
 				84251E86249EF9A8008DBF38 /* Main.storyboard in Resources */,
@@ -143,10 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AEA87E249F3AB4005F0449 /* AppDelegate.swift in Sources */,
+				84AEA877249F2FDD005F0449 /* DummyItem.swift in Sources */,
 				847D98D7249F1E3E00C3832E /* ProfileController.swift in Sources */,
 				847D98D5249F1E2400C3832E /* DetailController.swift in Sources */,
 				84251E83249EF9A8008DBF38 /* ViewController.swift in Sources */,
-				84251E7F249EF9A8008DBF38 /* AppDelegate.swift in Sources */,
+				84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */,
+				84AEA879249F2FEB005F0449 /* Item.swift in Sources */,
 				84251E81249EF9A8008DBF38 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
