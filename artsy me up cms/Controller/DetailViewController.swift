@@ -15,16 +15,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var itemStock: UILabel!
     @IBOutlet weak var itemDesc: UILabel!
     
-    var item: Item?
+    var product: Product?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let result = item {
-            itemTitle.text = result.title
+        if let result = product {
+            itemTitle.text = result.name
             itemPrice.text = String(result.price)
             itemStock.text = String(result.stock)
-            itemDesc.text = result.description
-            itemPhoto.image = result.photo
+            itemDesc.text = result.createdAt
+            itemPhoto.load(url: result.image)
         }
     }
     
