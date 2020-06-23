@@ -30,14 +30,16 @@ class LoginRegister: UIViewController {
                 if data.access_token != nil {
                     DispatchQueue.main.async {
                         print("masuk sini")
-//                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                        let vc = storyboard.instantiateViewController(withIdentifier: "list") as UIViewController
-                        let main = ViewController()
-                        main.user = data
-                        self.present(main, animated: true, completion: nil)
-//                        self.navigationController?.pushViewController(main, animated: true)
 
-//                        self.performSegue(withIdentifier: "toList", sender: self)
+                        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? ViewController {
+
+                            if let navigator = self.navigationController {
+                                viewController.user = data
+//                                navigator.present(viewController, animated: true, completion: nil)
+//                                navigator.popViewController(animated: true)
+                                navigator.pushViewController(viewController, animated: true)
+                            }
+                        }
                     }
                 }
             case .failure(let err):

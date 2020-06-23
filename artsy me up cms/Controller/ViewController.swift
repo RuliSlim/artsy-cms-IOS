@@ -15,13 +15,19 @@ class ViewController: UIViewController {
     var api: ApiCall = ApiCall()
     
     override func viewDidLoad() {
-//        api.get
+        //        navigationController?.popViewController(animated: true)
+        //        api.get
+        guard let navigationController = self.navigationController else { return }
+        var navigationArray = navigationController.viewControllers // To get all UIViewController stack as Array
+        navigationArray.remove(at: navigationArray.count - 2) // To remove previous UIViewController
+        self.navigationController?.viewControllers = navigationArray
+        
         let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-                indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
-                indicator.center = view.center
-                view.addSubview(indicator)
-                indicator.bringSubviewToFront(view)
-
+        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.bringSubviewToFront(view)
+        
         indicator.startAnimating()
         super.viewDidLoad()
         //        ganti text back to list
@@ -34,7 +40,6 @@ class ViewController: UIViewController {
                     self.products = data
                     self.itemTableView.reloadData()
                     indicator.stopAnimating()
-                    print(self.products, self.user!)
                 }
             case .failure(let err):
                 print("Failed to fetch courses:", err)
@@ -52,13 +57,13 @@ class ViewController: UIViewController {
     fileprivate func getData(method: String, endPoint: String, completion: @escaping (Result<[Product], Error>) -> ()) {
         let baseUrl: String = "https://cms-commerce.herokuapp.com/"
         guard let url = URL(string: baseUrl + endPoint) else { return }
-
+        
         URLSession.shared.dataTask(with: url) { (data, response, err) in
             if let err = err {
                 completion(.failure(err))
                 return
             }
-
+            
             //            succes
             do {
                 let products: [Product] = try JSONDecoder().decode([Product].self, from: data!)
