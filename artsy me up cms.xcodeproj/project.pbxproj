@@ -12,6 +12,8 @@
 		84251E86249EF9A8008DBF38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84251E84249EF9A8008DBF38 /* Main.storyboard */; };
 		84251E88249EF9A9008DBF38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84251E87249EF9A9008DBF38 /* Assets.xcassets */; };
 		84251E8B249EF9A9008DBF38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84251E89249EF9A9008DBF38 /* LaunchScreen.storyboard */; };
+		8434E9CE24A21193001E0BC7 /* LoginRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434E9CC24A21193001E0BC7 /* LoginRegister.swift */; };
+		8434E9CF24A21193001E0BC7 /* LoginRegister.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8434E9CD24A21193001E0BC7 /* LoginRegister.xib */; };
 		84AEA877249F2FDD005F0449 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA876249F2FDD005F0449 /* Data.swift */; };
 		84AEA879249F2FEB005F0449 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA878249F2FEB005F0449 /* Item.swift */; };
 		84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */; };
@@ -32,6 +34,8 @@
 		84251E87249EF9A9008DBF38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84251E8A249EF9A9008DBF38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84251E8C249EF9A9008DBF38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8434E9CC24A21193001E0BC7 /* LoginRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegister.swift; sourceTree = "<group>"; };
+		8434E9CD24A21193001E0BC7 /* LoginRegister.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginRegister.xib; sourceTree = "<group>"; };
 		84AEA876249F2FDD005F0449 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		84AEA878249F2FEB005F0449 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				84AEA883249F4FE9005F0449 /* DetailViewController.swift */,
 				84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */,
 				84AEA887249F636D005F0449 /* ProfileController.swift */,
+				8434E9CC24A21193001E0BC7 /* LoginRegister.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 				84251E89249EF9A9008DBF38 /* LaunchScreen.storyboard */,
 				84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */,
 				84AEA884249F4FE9005F0449 /* DetailViewController.xib */,
+				8434E9CD24A21193001E0BC7 /* LoginRegister.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 			files = (
 				84AEA87D249F3863005F0449 /* ItemTableViewCell.xib in Resources */,
 				84251E8B249EF9A9008DBF38 /* LaunchScreen.storyboard in Resources */,
+				8434E9CF24A21193001E0BC7 /* LoginRegister.xib in Resources */,
 				84AEA886249F4FE9005F0449 /* DetailViewController.xib in Resources */,
 				84251E88249EF9A9008DBF38 /* Assets.xcassets in Resources */,
 				84251E86249EF9A8008DBF38 /* Main.storyboard in Resources */,
@@ -207,6 +214,7 @@
 				84AEA885249F4FE9005F0449 /* DetailViewController.swift in Sources */,
 				84AEA87E249F3AB4005F0449 /* AppDelegate.swift in Sources */,
 				84AEA877249F2FDD005F0449 /* Data.swift in Sources */,
+				8434E9CE24A21193001E0BC7 /* LoginRegister.swift in Sources */,
 				84251E83249EF9A8008DBF38 /* ViewController.swift in Sources */,
 				84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */,
 				84AEA879249F2FEB005F0449 /* Item.swift in Sources */,

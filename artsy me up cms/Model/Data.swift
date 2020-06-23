@@ -20,3 +20,68 @@ var items: [Item] = [
     Item(title: "Miku", price: 1300000, stock: 40, description: "FAG Miku", photo: UIImage(named: "miku")!),
     Item(title: "Gourai", price: 1300000, stock: 40, description: "FAG Gourai", photo: UIImage(named: "gourai")!)
 ]
+
+class ApiCall {
+    let baseUrl: String = "https://cms-commerce.herokuapp.com/"
+    var realUrl: String = ""
+    
+    //    var url: URL = ""
+    
+    //    func getTest(method: String, endPoint: String) {
+    //        print(baseUrl, method, endPoint)
+    //
+    //    }
+    var newUrl: String {
+        get {
+            return realUrl
+        }
+        set (endPoint) {
+            realUrl = self.baseUrl + endPoint
+        }
+    }
+    
+    func getData(method: String, endPoint: String, completion: @escaping (Result<[Product], Error>) -> Void) {
+//        let baseUrl: String = "https://cms-commerce.herokuapp.com/"
+        guard let url = URL(string: self.baseUrl + endPoint) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
+            if let err = err {
+                completion(.failure(err))
+                return
+            }
+            //     succes
+            do {
+                let products: [Product] = try JSONDecoder().decode([Product].self, from: data!)
+                completion(.success(products))
+            } catch let jsonError {
+                completion(.failure(jsonError))
+            }
+        }
+        .resume()
+    }
+}
+
+
+/*
+ fileprivate func getData(method: String, endPoint: String, completion: @escaping (Result<[Product], Error>) -> ()) {
+ let baseUrl: String = "https://cms-commerce.herokuapp.com/"
+ guard let url = URL(string: baseUrl + endPoint) else { return }
+ 
+ URLSession.shared.dataTask(with: url) { (data, response, err) in
+ if let err = err {
+ completion(.failure(err))
+ return
+ }
+ 
+ //            succes
+ do {
+ let products: [Product] = try JSONDecoder().decode([Product].self, from: data!)
+ completion(.success(products))
+ } catch let jsonError {
+ completion(.failure(jsonError))
+ }
+ }
+ .resume()
+ }
+ 
+ */

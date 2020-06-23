@@ -11,8 +11,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var itemTableView: UITableView!
     
     var products: [Product] = []
+    var user: User?
+    var api: ApiCall = ApiCall()
     
     override func viewDidLoad() {
+//        api.get
         let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
                 indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
                 indicator.center = view.center
@@ -24,13 +27,14 @@ class ViewController: UIViewController {
         //        ganti text back to list
         self.navigationItem.title = "List"
         //        Api Call
-        getData(method: "GET", endPoint: "products") { (res) in
+        api.getData(method: "GET", endPoint: "products") { (res) in
             switch res {
             case .success(let data):
                 DispatchQueue.main.async {
                     self.products = data
                     self.itemTableView.reloadData()
                     indicator.stopAnimating()
+                    print(self.products, self.user!)
                 }
             case .failure(let err):
                 print("Failed to fetch courses:", err)

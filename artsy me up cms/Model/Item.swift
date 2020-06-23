@@ -24,3 +24,13 @@ struct Product: Decodable, Identifiable {
     var createdAt: String
     var updatedAt: String
 }
+
+struct User: Decodable {
+    var access_token: String?
+    var role: String?
+}
+
+struct LoginUserInfo {
+    var email: String
+    var password: String
+}
