@@ -86,7 +86,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
             imageData = imageDataTemp
         }
 
-        let location = storage.child("images/\(fileName)")
+        let location = storage.child("images/\(fileName)") 
         
         location.putData(imageData, metadata: nil) { (_, error) in
             guard error == nil else {
