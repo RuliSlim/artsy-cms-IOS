@@ -6,7 +6,6 @@ target 'artsy me up cms' do
   use_frameworks!
 
   # Pods for artsy me up cms
-  pod 'Firebase/Core'
-  pod 'Firebase/Storage'
+  pod 'ImgurAnonymousAPI'
 
 end

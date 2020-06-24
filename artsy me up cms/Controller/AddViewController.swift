@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseStorage
+import ImgurAnonymousAPI
 
 class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var name: UITextField!
@@ -16,8 +16,8 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var tempImage: UIImageView!
     
     var user: User?
+    private let imgur = ImgurUploader(clientID: "1b22dd0c6d6e14a")
     
-    private let storage = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +44,9 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         
         submit.getData { (res) in
             switch res {
-            case .success(let data):
-                let successProduct: Product = data.2!
-                
+            case .success(_):
                 DispatchQueue.main.async {
                     if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? ViewController {
-                        
                         if let navigator = self.navigationController {
                             indicator.stopAnimating()
                             viewController.user = self.user
@@ -68,47 +65,22 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         
         picker.dismiss(animated: true, completion: nil)
         
-        guard let url = info[UIImagePickerController.InfoKey.imageURL] as? URL else {
-            return
-        }
-        
-        let fileName = url.lastPathComponent
-        let fileType = url.pathExtension
-        var imageData: Data!
-        
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
-        switch fileType {
-        case "png":
-            guard let imageDataTemp = image.pngData() else { return }
-            imageData = imageDataTemp
-        default:
-            guard let imageDataTemp = image.jpegData(compressionQuality: 1) else { return }
-            imageData = imageDataTemp
-        }
-
-        let location = storage.child("images/\(fileName)") 
-        
-        location.putData(imageData, metadata: nil) { (_, error) in
-            guard error == nil else {
-                print("error")
-                return
-            }
-            
-            location.downloadURL { (url, err) in
-                guard let url = url, err == nil else { return }
-                let urlString = url.absoluteString
-
+        imgur.upload(info, completion: { result in
+            switch result {
+            case .success(let response):
                 DispatchQueue.main.async {
-                    self.tempImage.load(url: URL(string: urlString)!)
-                    self.image.text = urlString
+                    self.image.text = response.link.absoluteString
                     self.image.isUserInteractionEnabled = false
+                    self.tempImage.load(url: response.link)
                 }
+            case .failure(let error):
+                print("Upload failed: \(error)")
             }
-        }
+        })
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
 }
