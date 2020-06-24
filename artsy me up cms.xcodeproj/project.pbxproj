@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		117BD37A152620F0242AC2DF /* Pods_artsy_me_up_cms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E0ADA2844E755361C1D29 /* Pods_artsy_me_up_cms.framework */; };
 		84251E81249EF9A8008DBF38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251E80249EF9A8008DBF38 /* SceneDelegate.swift */; };
 		84251E83249EF9A8008DBF38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251E82249EF9A8008DBF38 /* ViewController.swift */; };
 		84251E88249EF9A9008DBF38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84251E87249EF9A9008DBF38 /* Assets.xcassets */; };
@@ -14,6 +15,8 @@
 		8434E9CE24A21193001E0BC7 /* LoginRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434E9CC24A21193001E0BC7 /* LoginRegister.swift */; };
 		8436042D24A2FDC7008DCB77 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436042B24A2FDC7008DCB77 /* AddViewController.swift */; };
 		8436042E24A2FDC7008DCB77 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436042C24A2FDC7008DCB77 /* AddViewController.xib */; };
+		84A0D5A124A334C40013DCB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A0D5A024A334C40013DCB6 /* GoogleService-Info.plist */; };
+		84A0D5A324A35A6A0013DCB6 /* FirebasePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0D5A224A35A6A0013DCB6 /* FirebasePhoto.swift */; };
 		84AEA879249F2FEB005F0449 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA878249F2FEB005F0449 /* Models.swift */; };
 		84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */; };
 		84AEA87D249F3863005F0449 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */; };
@@ -28,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		545284033D8E683E6FAC34F5 /* Pods-artsy me up cms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-artsy me up cms.release.xcconfig"; path = "Target Support Files/Pods-artsy me up cms/Pods-artsy me up cms.release.xcconfig"; sourceTree = "<group>"; };
+		775E0ADA2844E755361C1D29 /* Pods_artsy_me_up_cms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_artsy_me_up_cms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84251E7B249EF9A8008DBF38 /* artsy me up cms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "artsy me up cms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84251E7E249EF9A8008DBF38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84251E80249EF9A8008DBF38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +44,8 @@
 		8434E9CC24A21193001E0BC7 /* LoginRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegister.swift; sourceTree = "<group>"; };
 		8436042B24A2FDC7008DCB77 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8436042C24A2FDC7008DCB77 /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
+		84A0D5A024A334C40013DCB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84A0D5A224A35A6A0013DCB6 /* FirebasePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePhoto.swift; sourceTree = "<group>"; };
 		84AEA878249F2FEB005F0449 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		84BE5EAD24A2E674001BE207 /* ApiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		84BE5EAF24A2E6CC001BE207 /* GlobalVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVar.swift; sourceTree = "<group>"; };
 		84F33046249FC13100D8346E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B58B361E885EA16DE6235699 /* Pods-artsy me up cms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-artsy me up cms.debug.xcconfig"; path = "Target Support Files/Pods-artsy me up cms/Pods-artsy me up cms.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117BD37A152620F0242AC2DF /* Pods_artsy_me_up_cms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,8 @@
 			children = (
 				84251E7D249EF9A8008DBF38 /* artsy me up cms */,
 				84251E7C249EF9A8008DBF38 /* Products */,
+				90D6F4AB82CA7A066EC279E5 /* Pods */,
+				9AE53E908CCB1694B6F8C0AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +97,7 @@
 				84AEA873249F2F4C005F0449 /* Controller */,
 				84AEA872249F2F31005F0449 /* Model */,
 				84251E87249EF9A9008DBF38 /* Assets.xcassets */,
+				84A0D5A024A334C40013DCB6 /* GoogleService-Info.plist */,
 				84251E8C249EF9A9008DBF38 /* Info.plist */,
 			);
 			path = "artsy me up cms";
@@ -139,8 +151,26 @@
 				84F33046249FC13100D8346E /* Extension.swift */,
 				84BE5EAD24A2E674001BE207 /* ApiCall.swift */,
 				84BE5EAF24A2E6CC001BE207 /* GlobalVar.swift */,
+				84A0D5A224A35A6A0013DCB6 /* FirebasePhoto.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		90D6F4AB82CA7A066EC279E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B58B361E885EA16DE6235699 /* Pods-artsy me up cms.debug.xcconfig */,
+				545284033D8E683E6FAC34F5 /* Pods-artsy me up cms.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9AE53E908CCB1694B6F8C0AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				775E0ADA2844E755361C1D29 /* Pods_artsy_me_up_cms.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84251E8F249EF9A9008DBF38 /* Build configuration list for PBXNativeTarget "artsy me up cms" */;
 			buildPhases = (
+				3876916958127D75FECB2BAE /* [CP] Check Pods Manifest.lock */,
 				84251E77249EF9A8008DBF38 /* Sources */,
 				84251E78249EF9A8008DBF38 /* Frameworks */,
 				84251E79249EF9A8008DBF38 /* Resources */,
+				C30CDB588DBD6B699D32D914 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,10 +238,53 @@
 				84BE5EAC24A2CCEF001BE207 /* Main.storyboard in Resources */,
 				84AEA886249F4FE9005F0449 /* DetailViewController.xib in Resources */,
 				84251E88249EF9A9008DBF38 /* Assets.xcassets in Resources */,
+				84A0D5A124A334C40013DCB6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3876916958127D75FECB2BAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-artsy me up cms-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C30CDB588DBD6B699D32D914 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-artsy me up cms/Pods-artsy me up cms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-artsy me up cms/Pods-artsy me up cms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-artsy me up cms/Pods-artsy me up cms-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84251E77249EF9A8008DBF38 /* Sources */ = {
@@ -225,6 +300,7 @@
 				84BE5EB024A2E6CC001BE207 /* GlobalVar.swift in Sources */,
 				84251E83249EF9A8008DBF38 /* ViewController.swift in Sources */,
 				84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */,
+				84A0D5A324A35A6A0013DCB6 /* FirebasePhoto.swift in Sources */,
 				84AEA879249F2FEB005F0449 /* Models.swift in Sources */,
 				84251E81249EF9A8008DBF38 /* SceneDelegate.swift in Sources */,
 				84AEA888249F636D005F0449 /* ProfileController.swift in Sources */,
@@ -369,6 +445,7 @@
 		};
 		84251E90249EF9A9008DBF38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B58B361E885EA16DE6235699 /* Pods-artsy me up cms.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -387,6 +464,7 @@
 		};
 		84251E91249EF9A9008DBF38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 545284033D8E683E6FAC34F5 /* Pods-artsy me up cms.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

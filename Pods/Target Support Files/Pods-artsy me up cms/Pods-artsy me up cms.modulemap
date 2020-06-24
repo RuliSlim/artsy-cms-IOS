@@ -1,0 +1,6 @@
+framework module Pods_artsy_me_up_cms {
+  umbrella header "Pods-artsy me up cms-umbrella.h"
+
+  export *
+  module * { export * }
+}
