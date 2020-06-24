@@ -11,8 +11,6 @@ class ProfileController: UIViewController {
     @IBOutlet weak var profilePicture: UIImageView!
     
     override func viewDidLoad() {
-        //        entah kenapa ga circular
-        print("masuk sini")
         profilePicture.layer.cornerRadius = 20
         profilePicture.clipsToBounds = true
         profilePicture.layer.borderColor = UIColor.systemPink.cgColor

@@ -12,33 +12,35 @@ class ViewController: UIViewController {
     
     var products: [Product] = []
     var user: User?
-    var api: ApiCall = ApiCall()
+    let api: ApiCall = ApiCall(method: "GET", endPoint: "products", data: nil, type: .products)
     
     override func viewDidLoad() {
-        //        navigationController?.popViewController(animated: true)
-        //        api.get
+        super.viewDidLoad()
+        
         guard let navigationController = self.navigationController else { return }
-        var navigationArray = navigationController.viewControllers // To get all UIViewController stack as Array
-        navigationArray.remove(at: navigationArray.count - 2) // To remove previous UIViewController
+        var navigationArray = navigationController.viewControllers
+        navigationArray.remove(at: navigationArray.count - 2)
         self.navigationController?.viewControllers = navigationArray
         
-        let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        //        Loading Start
         indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
         indicator.center = view.center
         view.addSubview(indicator)
         indicator.bringSubviewToFront(view)
-        
         indicator.startAnimating()
-        super.viewDidLoad()
+        
         //        ganti text back to list
         self.navigationItem.title = "List"
+        self.navigationItem.titleView = UIView()
+        
         //        Api Call
-        api.getData(method: "GET", endPoint: "products") { (res) in
+        api.getData() { (res) in
             switch res {
             case .success(let data):
                 DispatchQueue.main.async {
-                    self.products = data
+                    self.products = data.1!
                     self.itemTableView.reloadData()
+                    //                    Loading Stop
                     indicator.stopAnimating()
                 }
             case .failure(let err):
@@ -51,27 +53,5 @@ class ViewController: UIViewController {
         //        connect to detail controller
         itemTableView.delegate = self
         itemTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
-        
-    }
-    
-    fileprivate func getData(method: String, endPoint: String, completion: @escaping (Result<[Product], Error>) -> ()) {
-        let baseUrl: String = "https://cms-commerce.herokuapp.com/"
-        guard let url = URL(string: baseUrl + endPoint) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-            if let err = err {
-                completion(.failure(err))
-                return
-            }
-            
-            //            succes
-            do {
-                let products: [Product] = try JSONDecoder().decode([Product].self, from: data!)
-                completion(.success(products))
-            } catch let jsonError {
-                completion(.failure(jsonError))
-            }
-        }
-        .resume()
     }
 }

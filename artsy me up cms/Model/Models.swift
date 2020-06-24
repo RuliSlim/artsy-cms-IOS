@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  Models.swift
 //  artsy me up cms
 //
 //  Created by Ruli on 21/06/20.
@@ -33,4 +33,9 @@ struct User: Decodable {
 struct LoginUserInfo {
     var email: String
     var password: String
+}
+
+enum TypeModel {
+    case user
+    case products
 }
