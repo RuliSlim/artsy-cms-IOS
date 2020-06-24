@@ -32,7 +32,7 @@ class LoginRegister: UIViewController {
     
     func loginAction() {
         let postString = "email=\(email.text!)&password=\(password.text!)"
-        let Login: ApiCall = ApiCall(method: "POST", endPoint: "login", data: postString, type: .user)
+        let Login: ApiCall = ApiCall(method: "POST", endPoint: "login", data: postString, type: .user, header: nil)
         Login.getData() { (res) in
             switch res {
             case .success(let data):

@@ -8,3 +8,4 @@
 import UIKit
 
 let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+

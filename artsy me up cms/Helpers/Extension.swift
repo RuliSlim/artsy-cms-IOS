@@ -52,3 +52,12 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+//extension UIActivityIndicatorView {
+//    func mulai() {
+//        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
+//        indicator.center = view.center
+//        view.addSubview(indicator)
+//        indicator.bringSubviewToFront(view)
+//        indicator.startAnimating()
+//    }
+//}

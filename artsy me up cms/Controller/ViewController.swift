@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     var products: [Product] = []
     var user: User?
-    let api: ApiCall = ApiCall(method: "GET", endPoint: "products", data: nil, type: .products)
+    let api: ApiCall = ApiCall(method: "GET", endPoint: "products", data: nil, type: .products, header: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,5 +53,24 @@ class ViewController: UIViewController {
         //        connect to detail controller
         itemTableView.delegate = self
         itemTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
+    }
+    
+    @IBAction func goToAdd(_ sender: Any) {
+//        DispatchQueue.main.async {
+            print("masuk sini")
+            let addProduct = AddViewController(nibName: "AddViewController", bundle: nil)
+            addProduct.user = self.user
+            self.navigationController?.pushViewController(addProduct, animated: true)
+            print("beres ga?")
+//        }
+//        DispatchQueue.main.async {
+//            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "add") as? AddViewController {
+//
+//                if let navigator = self.navigationController {
+//                    viewController.user = self.user!
+//                    navigator.pushViewController(viewController, animated: true)
+//                }
+//            }
+//        }
     }
 }

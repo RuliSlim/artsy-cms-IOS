@@ -38,4 +38,5 @@ struct LoginUserInfo {
 enum TypeModel {
     case user
     case products
+    case product
 }

@@ -51,15 +51,18 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Ay1-PL-z8l">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" id="idg-TC-aXy">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SVb-7R-YRK">
-                                <rect key="frame" x="318" y="11" width="76" height="22"/>
+                        <barButtonItem key="rightBarButtonItem" id="Wge-v6-cMp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MR9-Q9-riH">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="profile"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="GoY-4l-xQw" kind="show" id="M4y-OS-lDc"/>
+                                    <action selector="goToAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tpe-tK-LZM"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <action selector="goToAdd:" destination="BYZ-38-t0r" id="V6Y-1G-7N1"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -287,11 +290,7 @@
             <point key="canvasLocation" x="3864" y="860"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="DYU-km-Wby"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="me" width="432" height="447"/>
-        <image name="profile" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
 </document>
