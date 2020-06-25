@@ -16,7 +16,6 @@
 		8436042D24A2FDC7008DCB77 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436042B24A2FDC7008DCB77 /* AddViewController.swift */; };
 		8436042E24A2FDC7008DCB77 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436042C24A2FDC7008DCB77 /* AddViewController.xib */; };
 		84A0D5A124A334C40013DCB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A0D5A024A334C40013DCB6 /* GoogleService-Info.plist */; };
-		84A0D5A324A35A6A0013DCB6 /* FirebasePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0D5A224A35A6A0013DCB6 /* FirebasePhoto.swift */; };
 		84AEA879249F2FEB005F0449 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA878249F2FEB005F0449 /* Models.swift */; };
 		84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */; };
 		84AEA87D249F3863005F0449 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */; };
@@ -45,7 +44,6 @@
 		8436042B24A2FDC7008DCB77 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8436042C24A2FDC7008DCB77 /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		84A0D5A024A334C40013DCB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		84A0D5A224A35A6A0013DCB6 /* FirebasePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePhoto.swift; sourceTree = "<group>"; };
 		84AEA878249F2FEB005F0449 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				84F33046249FC13100D8346E /* Extension.swift */,
 				84BE5EAD24A2E674001BE207 /* ApiCall.swift */,
 				84BE5EAF24A2E6CC001BE207 /* GlobalVar.swift */,
-				84A0D5A224A35A6A0013DCB6 /* FirebasePhoto.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -300,7 +297,6 @@
 				84BE5EB024A2E6CC001BE207 /* GlobalVar.swift in Sources */,
 				84251E83249EF9A8008DBF38 /* ViewController.swift in Sources */,
 				84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */,
-				84A0D5A324A35A6A0013DCB6 /* FirebasePhoto.swift in Sources */,
 				84AEA879249F2FEB005F0449 /* Models.swift in Sources */,
 				84251E81249EF9A8008DBF38 /* SceneDelegate.swift in Sources */,
 				84AEA888249F636D005F0449 /* ProfileController.swift in Sources */,

@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var itemDesc: UILabel!
     
     var product: Product?
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,5 +28,10 @@ class DetailViewController: UIViewController {
             itemPhoto.load(url: result.image)
         }
     }
-    
+    @IBAction func toEditPage(_ sender: UIButton) {
+        let editPage = AddViewController(nibName: "AddViewController", bundle: nil)
+        editPage.user = user
+        editPage.product = product
+        self.navigationController?.pushViewController(editPage, animated: true)
+    }
 }

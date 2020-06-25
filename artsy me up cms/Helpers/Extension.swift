@@ -48,16 +48,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detail = DetailViewController(nibName: "DetailViewController", bundle: nil)
         detail.product = products[indexPath.row]
+        detail.user = self.user
         self.navigationController?.pushViewController(detail, animated: true)
     }
 }
-
-//extension UIActivityIndicatorView {
-//    func mulai() {
-//        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
-//        indicator.center = view.center
-//        view.addSubview(indicator)
-//        indicator.bringSubviewToFront(view)
-//        indicator.startAnimating()
-//    }
-//}

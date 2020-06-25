@@ -11,11 +11,11 @@ class ApiCall {
     let baseUrl: String = "https://cms-commerce.herokuapp.com/"
     var method: String
     var endPoint: String
-    var data: String?
+    var data: (Login?, UploadProduct?)?
     var type: TypeModel
     var header: String?
     
-    init(method: String, endPoint: String, data: String?, type: TypeModel, header: String?) {
+    init(method: String, endPoint: String, data: (Login?, UploadProduct?)?, type: TypeModel, header: String?) {
         self.method = method
         self.endPoint = endPoint
         self.data = data
@@ -31,11 +31,25 @@ class ApiCall {
         request.setValue(header, forHTTPHeaderField: "access_token")
         
         if let body = data {
-            let postString = body
-            request.httpBody = postString.data(using: .utf8)
+            if data!.0 != nil {
+                guard let jsonData = try? JSONEncoder().encode(body.0) else {
+                    print("Error: Trying to convert model to JSON data")
+                    return
+                }
+                request.httpBody = jsonData
+            } else {
+                guard let jsonData = try? JSONEncoder().encode(body.1) else {
+                    print("Error: Trying to convert model to JSON data")
+                    return
+                }
+                request.httpBody = jsonData
+            }
+            
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type") // the request is JSON
+            request.setValue("application/json", forHTTPHeaderField: "Accept") // the response expected to be
         }
-        
-        URLSession.shared.dataTask(with: request) { (data, response, err) in
+                
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, err) in
             if let err = err {
                 completion(.failure(err))
                 return
@@ -63,6 +77,8 @@ class ApiCall {
                 } catch let jsonError {
                     completion(.failure(jsonError))
                 }
+            case .edit:
+                completion(.success((nil, nil, nil)))
             }
         }
         .resume()

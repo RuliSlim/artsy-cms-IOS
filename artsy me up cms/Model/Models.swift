@@ -7,14 +7,6 @@
 
 import UIKit
 
-struct Item {
-    var title: String
-    var price: Int
-    var stock: Int
-    var description: String
-    var photo: UIImage
-}
-
 struct Product: Decodable, Identifiable {
     var id: Int
     var name: String
@@ -30,13 +22,21 @@ struct User: Decodable {
     var role: String?
 }
 
-struct LoginUserInfo {
-    var email: String
-    var password: String
+struct Login: Codable {
+    let email: String
+    let password: String
+}
+
+struct UploadProduct: Codable {
+    let name: String
+    let image: String
+    let price: Int
+    let stock: Int
 }
 
 enum TypeModel {
     case user
     case products
     case product
+    case edit
 }

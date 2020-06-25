@@ -20,19 +20,17 @@ class LoginRegister: UIViewController {
     }
     
     @IBAction func button(_ sender: UIButton) {
-//        Loading when submit
         indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
         indicator.center = view.center
         view.addSubview(indicator)
         indicator.bringSubviewToFront(view)
         indicator.startAnimating()
-        
         loginAction()
     }
     
     func loginAction() {
-        let postString = "email=\(email.text!)&password=\(password.text!)"
-        let Login: ApiCall = ApiCall(method: "POST", endPoint: "login", data: postString, type: .user, header: nil)
+        let loginData: Login = Login(email: email.text!, password: password.text!)
+        let Login: ApiCall = ApiCall(method: "POST", endPoint: "login", data: (loginData, nil), type: .user, header: nil)
         Login.getData() { (res) in
             switch res {
             case .success(let data):
