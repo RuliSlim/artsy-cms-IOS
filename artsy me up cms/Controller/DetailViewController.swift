@@ -28,10 +28,29 @@ class DetailViewController: UIViewController {
             itemPhoto.load(url: result.image)
         }
     }
+    
     @IBAction func toEditPage(_ sender: UIButton) {
         let editPage = AddViewController(nibName: "AddViewController", bundle: nil)
         editPage.user = user
         editPage.product = product
         self.navigationController?.pushViewController(editPage, animated: true)
+    }
+    
+    @IBAction func deleteProd(_ sender: UIButton) {
+        let api: ApiCall = ApiCall(method: "DELETE", endPoint: "products/\(product!.id)", data: nil, type: .edit, header: user.access_token!)
+        
+        api.getData { (res) in
+            switch res {
+            case .success(_):
+                DispatchQueue.main.async {
+                    let board = UIStoryboard(name: "Main", bundle: nil)
+                    let homePage = board.instantiateViewController(withIdentifier: "list") as! ViewController
+                    homePage.user = self.user
+                    self.navigationController?.pushViewController(homePage, animated: true)
+                }
+            case .failure(let err):
+                print(err)
+            }
+        }
     }
 }

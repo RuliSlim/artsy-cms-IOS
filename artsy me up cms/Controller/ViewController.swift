@@ -16,13 +16,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let navigationController = self.navigationController else { return }
-        var navigationArray = navigationController.viewControllers
-        navigationArray.remove(at: navigationArray.count - 2)
-        self.navigationController?.viewControllers = navigationArray
-        
-        //        Loading Start
+        self.navigationItem.setHidesBackButton(true, animated: false)
+
         indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
         indicator.center = view.center
         view.addSubview(indicator)
@@ -56,21 +51,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func goToAdd(_ sender: Any) {
-//        DispatchQueue.main.async {
-            print("masuk sini")
-            let addProduct = AddViewController(nibName: "AddViewController", bundle: nil)
-            addProduct.user = self.user
-            self.navigationController?.pushViewController(addProduct, animated: true)
-            print("beres ga?")
-//        }
-//        DispatchQueue.main.async {
-//            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "add") as? AddViewController {
-//
-//                if let navigator = self.navigationController {
-//                    viewController.user = self.user!
-//                    navigator.pushViewController(viewController, animated: true)
-//                }
-//            }
-//        }
+        let addProduct = AddViewController(nibName: "AddViewController", bundle: nil)
+        addProduct.user = self.user
+        self.navigationController?.pushViewController(addProduct, animated: true)
     }
 }

@@ -52,3 +52,13 @@ extension ViewController: UITableViewDelegate {
         self.navigationController?.pushViewController(detail, animated: true)
     }
 }
+
+extension UIApplication {
+
+  func setRootVC(_ vc : UIViewController){
+
+      self.windows.first?.rootViewController = vc
+      self.windows.first?.makeKeyAndVisible()
+
+    }
+}
