@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+
 
         indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
         indicator.center = view.center

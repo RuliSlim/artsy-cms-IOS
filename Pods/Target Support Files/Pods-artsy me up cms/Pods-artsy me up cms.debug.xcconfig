@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ImgurAnonymousAPI"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ImgurAnonymousAPI" "${PODS_CONFIGURATION_BUILD_DIR}/MDFInternationalization" "${PODS_CONFIGURATION_BUILD_DIR}/MDFTextAccessibility" "${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents" "${PODS_CONFIGURATION_BUILD_DIR}/MotionAnimator" "${PODS_CONFIGURATION_BUILD_DIR}/MotionInterchange" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ImgurAnonymousAPI/ImgurAnonymousAPI.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ImgurAnonymousAPI/ImgurAnonymousAPI.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MDFInternationalization/MDFInternationalization.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialComponents.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MotionAnimator/MotionAnimator.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MotionInterchange/MotionInterchange.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "ImageIO" -framework "ImgurAnonymousAPI" -framework "MobileCoreServices" -framework "Photos" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "ImageIO" -framework "ImgurAnonymousAPI" -framework "MDFInternationalization" -framework "MDFTextAccessibility" -framework "MaterialComponents" -framework "MobileCoreServices" -framework "MotionAnimator" -framework "MotionInterchange" -framework "Photos" -framework "SnapKit" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

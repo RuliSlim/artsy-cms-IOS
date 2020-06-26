@@ -40,3 +40,7 @@ enum TypeModel {
     case product
     case edit
 }
+
+struct CustomErrApi: Decodable {
+    var message: String?
+}

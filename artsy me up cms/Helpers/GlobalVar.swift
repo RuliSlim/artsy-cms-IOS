@@ -6,6 +6,6 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialActivityIndicator
 
-let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-
+let indicator: MDCActivityIndicator = MDCActivityIndicator()
