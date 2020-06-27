@@ -24,7 +24,7 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     let button: MDCButton = MDCButton()
     var customDialog: MDCDialogTransitionController!
     
-    var user: User!
+//    var user: User!
 //    var authKeyboardHandler = AuthKeyboardHandler()
     
     override func viewDidLoad() {
@@ -77,14 +77,12 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         email.addTarget(self, action: #selector(checkingEmail), for: UIControl.Event.editingChanged)
         password.addTarget(self, action: #selector(checkingEmail), for: UIControl.Event.editingChanged)
         
-//        authKeyboardHandler.view = view
-//        authKeyboardHandler.notificationCenterHandler()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     deinit {
+        print("sadsaf")
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -95,7 +93,6 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     }
     
     @objc func checkingEmail(_ sender: Any) {
-//        print("kok aneh sih bisa masuk sini")
         if sender as! NSObject == self.email {
             let status = Validation.checkingEmail(sender: self.email)
             if status {
@@ -121,22 +118,6 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         loginAction()
     }
-    
-//    @objc func keyboardWillShow(notification: NSNotification) {
-//        print("masuk ko")
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.stackView.frame.origin.y == 20 {
-//                print("masuk juga ko")
-//                self.stackView.frame.origin.y -= (0.5 * keyboardSize.height)
-//            }
-//        }
-//    }
-//
-//    @objc func keyboardWillHide(notification: NSNotification) {
-//        if self.stackView.frame.origin.y != 20 {
-//            self.stackView.frame.origin.y = 20
-//        }
-//    }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         print(view.frame.origin.y)
@@ -171,7 +152,7 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         Login.getData() { (res) in
             switch res {
             case .success(let data):
-                self.user = data.0
+//                self.user = data.0
                 if data.0?.access_token != nil {
                     DispatchQueue.main.async {
                         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? ViewController {

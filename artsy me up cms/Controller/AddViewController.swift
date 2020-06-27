@@ -115,8 +115,18 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
             present(alertController, animated: true, completion: nil)
             return
         }
+        guard Int(price.text!) != nil else {
+            alertController.message = "masukan nominal angka untuk stock"
+            present(alertController, animated: true, completion: nil)
+            return
+        }
         if stock.text == "" {
             alertController.message = "masukan stok produk"
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        guard Int(stock.text!) != nil else {
+            alertController.message = "masukan nominal angka untuk stock"
             present(alertController, animated: true, completion: nil)
             return
         }
@@ -196,11 +206,12 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         name.autocapitalizationType = .words
         name.sizeToFit()
         name.setUnderlineColor(UIColor.systemPink, for: .editing)
-        //        name.delegate = self
         name.tag = 0
         name.keyboardType = .alphabet
         name.frame = CGRect(x: 30, y: 20, width: 20, height: 30)
         name.clearButtonMode = .unlessEditing
+        name.minimumFontSize = 10
+        name.adjustsFontSizeToFitWidth = true
         
         price.label.text = "price"
         price.sizeToFit()
@@ -209,14 +220,18 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         price.keyboardType = .decimalPad
         price.frame = CGRect(x: 30, y: 20, width: 20, height: 30)
         price.clearButtonMode = .unlessEditing
+        price.minimumFontSize = 10
+        price.adjustsFontSizeToFitWidth = true
         
         stock.label.text = "stock"
         stock.sizeToFit()
         stock.setUnderlineColor(UIColor.systemPink, for: .editing)
         stock.tag = 2
         stock.keyboardType = .numberPad
-        name.frame = CGRect(x: 30, y: 20, width: 20, height: 30)
-        name.clearButtonMode = .unlessEditing
+        stock.frame = CGRect(x: 30, y: 20, width: 20, height: 30)
+        stock.clearButtonMode = .unlessEditing
+        stock.adjustsFontSizeToFitWidth = true
+        stock.minimumFontSize = 10
     }
     
     // Assign the newly active text field to your activeTextField variable
