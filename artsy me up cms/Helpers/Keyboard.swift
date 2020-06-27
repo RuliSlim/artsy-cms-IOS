@@ -12,14 +12,12 @@ class AuthKeyboardHandler {
     var keyboardIsShown = false
     
     func notificationCenterHandler() {
-        print("masuk sini ga sih di keyboar?", self.view!)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         hideKeyboardOnTap()
     }
     
     @objc func handleKeyboardWillShow(notification: NSNotification){
-        print(self.view!.frame.origin, "masuk sini ga sih?")
         let kFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
         let kDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
         guard let height = kFrame?.height, let duration = kDuration else { return }

@@ -15,7 +15,7 @@ import MaterialComponents.MaterialTextControls_OutlinedTextAreas
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MaterialComponents.MaterialButtons
 
-class FormViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class FormViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var stackLabel: UIStackView!
@@ -145,10 +145,13 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
     }
     
     func setStack() -> Void {
-        setTextField(name, "name", 0)
-        setTextField(price, "price", 1)
-        setTextField(stock, "stock", 2)
-        setTextField(image, "photo", 0)
+        CustomTextField.setTextField(name, "name", 0)
+        CustomTextField.setTextField(price, "price", 1)
+        CustomTextField.setTextField(stock, "stock", 2)
+        CustomTextField.setTextField(image, "photo", 0)
+        name.delegate = self
+        price.delegate = self
+        stock.delegate = self
         
         button.setTitle("Submit", for: UIControl.State())
         button.backgroundColor = .systemPink
@@ -176,23 +179,6 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         
         stackLabel.alignment = .fill
         stackLabel.distribution = .equalSpacing
-    }
-    
-    func setTextField(_ textField: MDCFilledTextField, _ title: String, _ tag: Int) -> Void {
-        textField.label.text = title
-        textField.sizeToFit()
-        textField.setUnderlineColor(UIColor.systemPink, for: .editing)
-        textField.tag = tag
-        textField.frame = CGRect(x: 30, y: 20, width: 20, height: 30)
-        textField.clearButtonMode = .unlessEditing
-        textField.adjustsFontSizeToFitWidth = true
-        textField.minimumFontSize = 10
-        switch title {
-        case "price", "stock":
-            textField.keyboardType = .decimalPad
-        default:
-            break
-        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

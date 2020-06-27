@@ -26,25 +26,11 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-        email.label.text = "email"
-        email.autocapitalizationType = .none
-        email.sizeToFit()
-        email.setUnderlineColor(UIColor.systemPink, for: .editing)
-        email.delegate = self
-        email.tag = 0
-        email.keyboardType = .emailAddress
-        email.frame = CGRect(x: 30, y: 20, width: 20, height: 30)
-        email.clearButtonMode = .unlessEditing
+        CustomTextField.setTextField(email, "email", 0)
+        CustomTextField.setTextField(password, "password", 1)
         
-        password.label.text = "password"
-        password.autocapitalizationType = .none
-        password.sizeToFit()
-        password.setUnderlineColor(.systemPink, for: .editing)
+        email.delegate = self
         password.delegate = self
-        password.tag = 1
-        password.isSecureTextEntry = true
-        password.frame = CGRect(x: 30, y:20, width: 20, height: 30)
-        password.clearButtonMode = .unlessEditing
         
         button.setTitle("Login", for: UIControl.State())
         button.backgroundColor = .systemPink
