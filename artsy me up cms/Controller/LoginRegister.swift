@@ -68,7 +68,7 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
-        stackView.spacing = 5
+        stackView.spacing = 0
         
         email.addTarget(self, action: #selector(checkingEmail), for: UIControl.Event.editingChanged)
         password.addTarget(self, action: #selector(checkingEmail), for: UIControl.Event.editingChanged)

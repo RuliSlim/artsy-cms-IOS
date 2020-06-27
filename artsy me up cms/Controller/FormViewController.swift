@@ -187,6 +187,12 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         textField.clearButtonMode = .unlessEditing
         textField.adjustsFontSizeToFitWidth = true
         textField.minimumFontSize = 10
+        switch title {
+        case "price", "stock":
+            textField.keyboardType = .decimalPad
+        default:
+            break
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

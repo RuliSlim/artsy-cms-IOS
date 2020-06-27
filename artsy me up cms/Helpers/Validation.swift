@@ -25,7 +25,7 @@ class Validation {
     
     static func checkingInt(senders: [MDCFilledTextField]) -> String? {
         for sender in senders {
-            if Int(sender.text!) == nil {
+            if Float(sender.text!) == nil {
                 return sender.label.text
             }
         }
