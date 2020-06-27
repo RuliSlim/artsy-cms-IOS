@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FormViewController" customModule="artsy_me_up_cms" customModuleProvider="target">
+            <connections>
+                <outlet property="showImage" destination="SPA-Si-Cox" id="6Xe-3m-Gcz"/>
+                <outlet property="stackLabel" destination="X4z-6y-cuk" id="qUH-Qy-Enh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SPA-Si-Cox">
+                    <rect key="frame" x="30" y="74" width="354" height="403"/>
+                    <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Lbe-xS-vwY" appends="YES" id="KGB-V3-3nf"/>
+                    </connections>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X4z-6y-cuk">
+                    <rect key="frame" x="30" y="507" width="354" height="325"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="SPA-Si-Cox" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="CZ6-h9-BWI"/>
+                <constraint firstItem="X4z-6y-cuk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="EBJ-tJ-5Ux"/>
+                <constraint firstItem="SPA-Si-Cox" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="EIC-e7-Mbz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="X4z-6y-cuk" secondAttribute="bottom" constant="30" id="fuY-5l-gKf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X4z-6y-cuk" secondAttribute="trailing" constant="30" id="jFN-dH-qjP"/>
+                <constraint firstItem="X4z-6y-cuk" firstAttribute="top" secondItem="SPA-Si-Cox" secondAttribute="bottom" constant="30" id="nJM-Nm-geK"/>
+                <constraint firstItem="SPA-Si-Cox" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="p9I-qJ-c5Q"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SPA-Si-Cox" secondAttribute="trailing" constant="30" id="v8x-NR-97b"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="122"/>
+        </view>
+        <tapGestureRecognizer id="Lbe-xS-vwY">
+            <connections>
+                <action selector="tapImage:" destination="-1" id="hmE-Ou-eUl"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="98"/>
+    </resources>
+</document>

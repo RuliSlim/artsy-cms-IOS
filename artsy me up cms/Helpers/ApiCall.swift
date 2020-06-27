@@ -23,7 +23,7 @@ class ApiCall {
         self.header = header
     }
     
-    func getData(completion: @escaping (Result<(User?, [Product]?, Product?), Error>) -> Void) {
+    func getData(completion: @escaping (Result<(User?, [Product]?, Product?, CustomErrApi?), Error>) -> Void) {
         guard let url = URL(string: baseUrl + endPoint) else { return }
         
         var request = URLRequest(url: url)
@@ -51,34 +51,51 @@ class ApiCall {
                 
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, err) in
             if let err = err {
+                print(err, "err di apical")
                 completion(.failure(err))
                 return
             }
-            //     succes
+            
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 500...599:
+                    do {
+                        let err = try JSONDecoder().decode(CustomErrApi.self, from: data!)
+                        completion(.success((nil, nil, nil, err)))
+                    } catch let jsonErr {
+                        completion(.failure(jsonErr))
+                    }
+                    return
+                default:
+                    break
+                }
+            }
+            
             switch self.type {
             case .user:
                 do {
                     let user: User = try JSONDecoder().decode(User.self, from: data!)
-                    completion(.success((user, nil, nil)))
+                    completion(.success((user, nil, nil, nil)))
                 } catch let jsonError {
+                    print(jsonError, "err dijson")
                     completion(.failure(jsonError))
                 }
             case .products:
                 do {
                     let products: [Product] = try JSONDecoder().decode([Product].self, from: data!)
-                    completion(.success((nil, products, nil)))
+                    completion(.success((nil, products, nil, nil)))
                 } catch let jsonError {
                     completion(.failure(jsonError))
                 }
             case .product:
                 do {
                     let product: Product = try JSONDecoder().decode(Product.self, from: data!)
-                    completion(.success((nil, nil, product)))
+                    completion(.success((nil, nil, product, nil)))
                 } catch let jsonError {
                     completion(.failure(jsonError))
                 }
             case .edit:
-                completion(.success((nil, nil, nil)))
+                completion(.success((nil, nil, nil, nil)))
             }
         }
         .resume()

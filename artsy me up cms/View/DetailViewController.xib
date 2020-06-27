@@ -25,18 +25,22 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6Z-OJ-RER" userLabel="Header">
                     <rect key="frame" x="0.0" y="44" width="414" height="89.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFo-Wo-6Sx">
-                            <rect key="frame" x="20" y="38" width="394" height="31.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YFo-Wo-6Sx">
+                            <rect key="frame" x="20" y="38" width="294" height="31.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHN-Ie-uvX">
-                            <rect key="frame" x="308" y="29" width="79" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <state key="normal" title="Button">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHN-Ie-uvX">
+                            <rect key="frame" x="360" y="42" width="25" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="X8T-FN-LE0"/>
+                                <constraint firstAttribute="width" constant="25" id="lyl-AT-wz9"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <state key="normal" image="trash.circle.fill" catalog="system">
                                 <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                             </state>
                             <connections>
                                 <action selector="deleteProd:" destination="-1" eventType="touchDown" id="cr0-tO-tVx"/>
@@ -46,9 +50,11 @@
                     <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="YFo-Wo-6Sx" secondAttribute="trailing" id="2MT-1K-gdb"/>
+                        <constraint firstAttribute="trailing" secondItem="YFo-Wo-6Sx" secondAttribute="trailing" constant="100" id="2MT-1K-gdb"/>
                         <constraint firstAttribute="bottom" secondItem="YFo-Wo-6Sx" secondAttribute="bottom" constant="20" id="63d-ss-uMl"/>
                         <constraint firstItem="YFo-Wo-6Sx" firstAttribute="leading" secondItem="P6Z-OJ-RER" secondAttribute="leading" constant="20" id="HmU-Sp-mL9"/>
+                        <constraint firstAttribute="trailing" secondItem="DHN-Ie-uvX" secondAttribute="trailing" constant="29" id="N8g-Lh-aSC"/>
+                        <constraint firstItem="DHN-Ie-uvX" firstAttribute="centerY" secondItem="YFo-Wo-6Sx" secondAttribute="centerY" id="tdv-5S-SWc"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d5O-NT-lDv" userLabel="Top">
@@ -106,30 +112,20 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desciption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YOz-Wf-p7l">
-                    <rect key="frame" x="20" y="696.5" width="414" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <rect key="frame" x="20" y="696.5" width="414" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NtQ-NQ-Isy">
-                    <rect key="frame" x="20" y="776.5" width="374" height="30"/>
-                    <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="toEditPage:" destination="-1" eventType="touchDown" id="w5z-E5-orT"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="NtQ-NQ-Isy" firstAttribute="top" secondItem="YOz-Wf-p7l" secondAttribute="bottom" constant="50" id="0nu-nl-ELw"/>
                 <constraint firstItem="YOz-Wf-p7l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1KX-7a-nWN"/>
                 <constraint firstItem="d5O-NT-lDv" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="2n9-xr-apV"/>
                 <constraint firstItem="d5O-NT-lDv" firstAttribute="top" secondItem="P6Z-OJ-RER" secondAttribute="bottom" id="5ZL-Ta-Ej6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W6B-Tl-KCG" secondAttribute="trailing" constant="20" id="5hZ-bu-ZyQ"/>
                 <constraint firstItem="YOz-Wf-p7l" firstAttribute="top" secondItem="W6B-Tl-KCG" secondAttribute="bottom" constant="20" id="Fdp-hB-aMN"/>
                 <constraint firstItem="d5O-NT-lDv" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Kbl-h1-avi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NtQ-NQ-Isy" secondAttribute="trailing" constant="20" id="LEY-CM-MIg"/>
                 <constraint firstItem="W6B-Tl-KCG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SyK-bK-Tbw"/>
                 <constraint firstItem="d5O-NT-lDv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="a5h-Se-eF2"/>
                 <constraint firstItem="YOz-Wf-p7l" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="20" id="gUV-K0-px2"/>
@@ -137,11 +133,13 @@
                 <constraint firstItem="P6Z-OJ-RER" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.1" id="lmH-rd-D0c"/>
                 <constraint firstItem="P6Z-OJ-RER" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="nPa-7O-GJq"/>
                 <constraint firstItem="W6B-Tl-KCG" firstAttribute="top" secondItem="d5O-NT-lDv" secondAttribute="bottom" constant="20" id="qG6-n5-mEc"/>
-                <constraint firstItem="NtQ-NQ-Isy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rst-Cy-jrw"/>
                 <constraint firstItem="P6Z-OJ-RER" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uT3-fj-WmW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="100.44642857142857"/>
         </view>
     </objects>
+    <resources>
+        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

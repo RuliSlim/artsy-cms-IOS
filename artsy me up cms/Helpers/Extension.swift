@@ -5,7 +5,7 @@
 //  Created by Ruli on 21/06/20.
 //
 
-import Foundation
+//import Foundation
 import UIKit
 
 public extension UIImageView {
@@ -50,15 +50,5 @@ extension ViewController: UITableViewDelegate {
         detail.product = products[indexPath.row]
         detail.user = self.user
         self.navigationController?.pushViewController(detail, animated: true)
-    }
-}
-
-extension UIApplication {
-
-  func setRootVC(_ vc : UIViewController){
-
-      self.windows.first?.rootViewController = vc
-      self.windows.first?.makeKeyAndVisible()
-
     }
 }

@@ -15,6 +15,9 @@
 		8434E9CE24A21193001E0BC7 /* LoginRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434E9CC24A21193001E0BC7 /* LoginRegister.swift */; };
 		8436042D24A2FDC7008DCB77 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436042B24A2FDC7008DCB77 /* AddViewController.swift */; };
 		8436042E24A2FDC7008DCB77 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436042C24A2FDC7008DCB77 /* AddViewController.xib */; };
+		84683EB124A6E4F90076CA1A /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84683EB024A6E4F90076CA1A /* Keyboard.swift */; };
+		846954D424A7414000AE7E05 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846954D224A7413F00AE7E05 /* FormViewController.swift */; };
+		846954D524A7414000AE7E05 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846954D324A7414000AE7E05 /* FormViewController.xib */; };
 		84A0D5A124A334C40013DCB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A0D5A024A334C40013DCB6 /* GoogleService-Info.plist */; };
 		84AEA879249F2FEB005F0449 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA878249F2FEB005F0449 /* Models.swift */; };
 		84AEA87C249F3863005F0449 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */; };
@@ -26,6 +29,7 @@
 		84BE5EAC24A2CCEF001BE207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84251E84249EF9A8008DBF38 /* Main.storyboard */; };
 		84BE5EAE24A2E674001BE207 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EAD24A2E674001BE207 /* ApiCall.swift */; };
 		84BE5EB024A2E6CC001BE207 /* GlobalVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EAF24A2E6CC001BE207 /* GlobalVar.swift */; };
+		84D431B024A5C7F5004843B1 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D431AF24A5C7F5004843B1 /* Validation.swift */; };
 		84F33047249FC13100D8346E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F33046249FC13100D8346E /* Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,9 @@
 		8434E9CC24A21193001E0BC7 /* LoginRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegister.swift; sourceTree = "<group>"; };
 		8436042B24A2FDC7008DCB77 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8436042C24A2FDC7008DCB77 /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
+		84683EB024A6E4F90076CA1A /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		846954D224A7413F00AE7E05 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		846954D324A7414000AE7E05 /* FormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormViewController.xib; sourceTree = "<group>"; };
 		84A0D5A024A334C40013DCB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84AEA878249F2FEB005F0449 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		84AEA87A249F3863005F0449 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -52,6 +59,7 @@
 		84AEA887249F636D005F0449 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		84BE5EAD24A2E674001BE207 /* ApiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		84BE5EAF24A2E6CC001BE207 /* GlobalVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVar.swift; sourceTree = "<group>"; };
+		84D431AF24A5C7F5004843B1 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		84F33046249FC13100D8346E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B58B361E885EA16DE6235699 /* Pods-artsy me up cms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-artsy me up cms.debug.xcconfig"; path = "Target Support Files/Pods-artsy me up cms/Pods-artsy me up cms.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +120,7 @@
 		84AEA873249F2F4C005F0449 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				846954D224A7413F00AE7E05 /* FormViewController.swift */,
 				8436042B24A2FDC7008DCB77 /* AddViewController.swift */,
 				84251E82249EF9A8008DBF38 /* ViewController.swift */,
 				84AEA883249F4FE9005F0449 /* DetailViewController.swift */,
@@ -130,6 +139,7 @@
 				84AEA87B249F3863005F0449 /* ItemTableViewCell.xib */,
 				84AEA884249F4FE9005F0449 /* DetailViewController.xib */,
 				8436042C24A2FDC7008DCB77 /* AddViewController.xib */,
+				846954D324A7414000AE7E05 /* FormViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +159,8 @@
 				84F33046249FC13100D8346E /* Extension.swift */,
 				84BE5EAD24A2E674001BE207 /* ApiCall.swift */,
 				84BE5EAF24A2E6CC001BE207 /* GlobalVar.swift */,
+				84D431AF24A5C7F5004843B1 /* Validation.swift */,
+				84683EB024A6E4F90076CA1A /* Keyboard.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,6 +243,7 @@
 			files = (
 				8436042E24A2FDC7008DCB77 /* AddViewController.xib in Resources */,
 				84AEA87D249F3863005F0449 /* ItemTableViewCell.xib in Resources */,
+				846954D524A7414000AE7E05 /* FormViewController.xib in Resources */,
 				84251E8B249EF9A9008DBF38 /* LaunchScreen.storyboard in Resources */,
 				84BE5EAC24A2CCEF001BE207 /* Main.storyboard in Resources */,
 				84AEA886249F4FE9005F0449 /* DetailViewController.xib in Resources */,
@@ -290,8 +303,11 @@
 			files = (
 				84F33047249FC13100D8346E /* Extension.swift in Sources */,
 				84AEA885249F4FE9005F0449 /* DetailViewController.swift in Sources */,
+				84683EB124A6E4F90076CA1A /* Keyboard.swift in Sources */,
+				846954D424A7414000AE7E05 /* FormViewController.swift in Sources */,
 				8436042D24A2FDC7008DCB77 /* AddViewController.swift in Sources */,
 				84AEA87E249F3AB4005F0449 /* AppDelegate.swift in Sources */,
+				84D431B024A5C7F5004843B1 /* Validation.swift in Sources */,
 				84BE5EAE24A2E674001BE207 /* ApiCall.swift in Sources */,
 				8434E9CE24A21193001E0BC7 /* LoginRegister.swift in Sources */,
 				84BE5EB024A2E6CC001BE207 /* GlobalVar.swift in Sources */,
