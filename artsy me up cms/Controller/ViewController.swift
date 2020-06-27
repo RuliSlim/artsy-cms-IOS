@@ -57,7 +57,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func goToAdd(_ sender: Any) {
-        let addProduct = AddViewController()
+        let addProduct = FormViewController(nibName: "FormViewController", bundle: nil)
         addProduct.user = self.user
         self.navigationController?.pushViewController(addProduct, animated: true)
     }

@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Ay1-PL-z8l">
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" id="Wge-v6-cMp">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MR9-Q9-riH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MR9-Q9-riH">
                                 <rect key="frame" x="372.33333333333331" y="11" width="21.666666666666686" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>

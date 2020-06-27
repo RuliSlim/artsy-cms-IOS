@@ -19,6 +19,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     @IBOutlet weak var tempImage: UIImageView!
     @IBOutlet weak var viewLabels: UIStackView!
+    @IBOutlet weak var MDCANJI: UITextField!
     
     var user: User?
     var product: Product?
@@ -45,8 +46,8 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         image.text = editProd.image.absoluteString
         tempImage.load(url: editProd.image)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 //        isActive()
 //        textFieldDidBeginEditing(_ textField: UITextField)
         
@@ -58,23 +59,6 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        print(view.frame.origin.y)
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0.0 {
-                print("masuk ga sih")
-                self.view.frame.origin.y -= (0.5 * keyboardSize.height)
-            }
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        print(view.frame.origin.y)
-        if self.view.frame.origin.y != 0.0 {
-            self.view.frame.origin.y = 0.0
-        }
     }
     
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {

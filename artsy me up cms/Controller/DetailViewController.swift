@@ -8,7 +8,6 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemPhoto: UIImageView!
     @IBOutlet weak var itemPrice: UILabel!
@@ -30,7 +29,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func toEditPage(_ sender: UIButton) {
-        let editPage = AddViewController(nibName: "AddViewController", bundle: nil)
+        let editPage = FormViewController(nibName: "FormViewController", bundle: nil)
         editPage.user = user
         editPage.product = product
         self.navigationController?.pushViewController(editPage, animated: true)
