@@ -28,27 +28,16 @@
                     </connections>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X4z-6y-cuk">
-                    <rect key="frame" x="30" y="507" width="354" height="265"/>
+                    <rect key="frame" x="30" y="507" width="354" height="325"/>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ay2-FU-t58">
-                    <rect key="frame" x="30" y="802" width="354" height="30"/>
-                    <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="submitButton:" destination="-1" eventType="touchUpInside" id="e3e-Xo-6tx"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="SPA-Si-Cox" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="CZ6-h9-BWI"/>
                 <constraint firstItem="X4z-6y-cuk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="EBJ-tJ-5Ux"/>
                 <constraint firstItem="SPA-Si-Cox" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="EIC-e7-Mbz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ay2-FU-t58" secondAttribute="bottom" constant="30" id="K6U-KH-1cE"/>
-                <constraint firstItem="ay2-FU-t58" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="UMh-qw-1yR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ay2-FU-t58" secondAttribute="trailing" constant="30" id="dvR-Fd-AHI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="X4z-6y-cuk" secondAttribute="bottom" constant="30" id="fuY-5l-gKf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X4z-6y-cuk" secondAttribute="trailing" constant="30" id="jFN-dH-qjP"/>
-                <constraint firstItem="ay2-FU-t58" firstAttribute="top" secondItem="X4z-6y-cuk" secondAttribute="bottom" constant="30" id="mUz-Zp-hYS"/>
                 <constraint firstItem="X4z-6y-cuk" firstAttribute="top" secondItem="SPA-Si-Cox" secondAttribute="bottom" constant="30" id="nJM-Nm-geK"/>
                 <constraint firstItem="SPA-Si-Cox" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="p9I-qJ-c5Q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SPA-Si-Cox" secondAttribute="trailing" constant="30" id="v8x-NR-97b"/>

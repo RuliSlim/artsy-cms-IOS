@@ -32,6 +32,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
     let price: MDCFilledTextField = MDCFilledTextField()
     let stock: MDCFilledTextField = MDCFilledTextField()
     let image: MDCFilledTextField = MDCFilledTextField()
+    let button: MDCButton = MDCButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,50 +49,6 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         showImage.load(url: product!.image)
     }
     
-    @IBAction func submitButton(_ sender: Any) {
-        if let isEmpty = Validation.isNotEmpty(senders: [name, price, stock, image]) {
-            alertController.message = isEmpty + "produk tidak boleh kosong"
-            alertController.addAction(action)
-            present(alertController, animated: true)
-            return
-        }
-        if let notInt = Validation.checkingInt(senders: [price, stock]) {
-            alertController.message = notInt + "produk harus dalam angka"
-            alertController.addAction(action)
-            present(alertController, animated: true)
-            return
-        }
-        
-        view.addSubview(indicator)
-        indicator.bringSubviewToFront(view)
-        indicator.snp.makeConstraints { (make) in
-            make.center.equalTo(view)
-        }
-        indicator.startAnimating()
-        
-        let uploadProduct: UploadProduct = UploadProduct(name: name.text!, image: image.text!, price: Int(price.text!)!, stock: Int(stock.text!)!)
-        
-        if product != nil {
-            submit = ApiCall(method: "PUT", endPoint: "products/\(product!.id)", data: (nil, uploadProduct), type: .edit, header: user?.access_token!)
-        } else {
-            submit = ApiCall(method: "POST", endPoint: "products", data: (nil, uploadProduct), type: .product, header: user?.access_token!)
-        }
-        
-        submit.getData { (res) in
-            switch res {
-            case .success(_):
-                DispatchQueue.main.async {
-                    let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? ViewController
-                    indicator.stopAnimating()
-                    guard viewController != nil else { return }
-                    viewController?.user = self.user
-                    self.navigationController?.pushViewController(viewController!, animated: true)
-                }
-            case .failure(let err):
-                print(err, "error di form prod")
-            }
-        }
-    }
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
         view.addSubview(indicator)
         showImage.isHidden = true
@@ -142,15 +99,67 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         showImage.isHidden = false
     }
     
+    @objc func submitButton(_ sender: Any) {
+        if let isEmpty = Validation.isNotEmpty(senders: [name, price, stock, image]) {
+            alertController.message = isEmpty + "produk tidak boleh kosong"
+            alertController.addAction(action)
+            present(alertController, animated: true)
+            return
+        }
+        if let notInt = Validation.checkingInt(senders: [price, stock]) {
+            alertController.message = notInt + "produk harus dalam angka"
+            alertController.addAction(action)
+            present(alertController, animated: true)
+            return
+        }
+        
+        view.addSubview(indicator)
+        indicator.bringSubviewToFront(view)
+        indicator.snp.makeConstraints { (make) in
+            make.center.equalTo(view)
+        }
+        indicator.startAnimating()
+        
+        let uploadProduct: UploadProduct = UploadProduct(name: name.text!, image: image.text!, price: Int(price.text!)!, stock: Int(stock.text!)!)
+        
+        if product != nil {
+            submit = ApiCall(method: "PUT", endPoint: "products/\(product!.id)", data: (nil, uploadProduct), type: .edit, header: user?.access_token!)
+        } else {
+            submit = ApiCall(method: "POST", endPoint: "products", data: (nil, uploadProduct), type: .product, header: user?.access_token!)
+        }
+        
+        submit.getData { (res) in
+            switch res {
+            case .success(_):
+                DispatchQueue.main.async {
+                    let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? ViewController
+                    indicator.stopAnimating()
+                    guard viewController != nil else { return }
+                    viewController?.user = self.user
+                    self.navigationController?.pushViewController(viewController!, animated: true)
+                }
+            case .failure(let err):
+                print(err, "error di form prod")
+            }
+        }
+    }
+    
     func setStack() -> Void {
         setTextField(name, "name", 0)
         setTextField(price, "price", 1)
         setTextField(stock, "stock", 2)
         setTextField(image, "photo", 0)
         
+        button.setTitle("Submit", for: UIControl.State())
+        button.backgroundColor = .systemPink
+        button.titleLabel?.textColor = .black
+        button.sizeToFit()
+        button.addTarget(self, action: #selector(submitButton(_:)), for: .touchDown)
+        
         stackLabel.addArrangedSubview(name)
         stackLabel.addArrangedSubview(price)
         stackLabel.addArrangedSubview(stock)
+        stackLabel.addArrangedSubview(button)
         
         name.snp.makeConstraints { (make) in
             make.width.equalTo(stackLabel)
@@ -161,9 +170,12 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         stock.snp.makeConstraints { (make) in
             make.width.equalTo(stackLabel)
         }
+        button.snp.makeConstraints { (make) in
+            make.width.equalTo(stackLabel)
+        }
         
         stackLabel.alignment = .fill
-        stackLabel.distribution = .fillEqually
+        stackLabel.distribution = .equalSpacing
     }
     
     func setTextField(_ textField: MDCFilledTextField, _ title: String, _ tag: Int) -> Void {

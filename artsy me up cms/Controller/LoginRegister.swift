@@ -22,9 +22,7 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     let email: MDCFilledTextField = MDCFilledTextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     let password: MDCFilledTextField = MDCFilledTextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     let button: MDCButton = MDCButton()
-    var customDialog: MDCDialogTransitionController!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
