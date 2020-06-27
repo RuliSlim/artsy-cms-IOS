@@ -13,7 +13,6 @@ import MaterialComponents.MaterialTextControls_FilledTextFields
 import MaterialComponents.MaterialTextControls_OutlinedTextAreas
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MaterialComponents.MaterialButtons
-import MaterialComponents.MaterialDialogs
 
 class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var containerStack: UIView!
@@ -26,6 +25,7 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     var customDialog: MDCDialogTransitionController!
     
     var user: User!
+//    var authKeyboardHandler = AuthKeyboardHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,10 +76,18 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         email.addTarget(self, action: #selector(checkingEmail), for: UIControl.Event.editingChanged)
         password.addTarget(self, action: #selector(checkingEmail), for: UIControl.Event.editingChanged)
-//        email.addTarget(self, action: #selector(checkingEmail), for: UIControlEvents.EditingChanged)
+        
+//        authKeyboardHandler.view = view
+//        authKeyboardHandler.notificationCenterHandler()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     @IBAction func tapToView(_ sender: UITapGestureRecognizer) {
         email.resignFirstResponder()
@@ -87,21 +95,19 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     }
     
     @objc func checkingEmail(_ sender: Any) {
+//        print("kok aneh sih bisa masuk sini")
         if sender as! NSObject == self.email {
             let status = Validation.checkingEmail(sender: self.email)
             if status {
                 email.leadingAssistiveLabel.text = ""
             } else {
                 email.leadingAssistiveLabel.text = "please input valid email address"
-                email.leadingAssistiveLabel.textColor = .red
+                email.leadingAssistiveLabel.textColor = UIColor.red
             }
-        } else {
-            print("ga masuk dong sedih")
         }
     }
     
     @objc func submitLogin(_ sender: Any) {
-        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
         indicator.center = view.center
         view.addSubview(indicator)
         indicator.bringSubviewToFront(view)
@@ -116,17 +122,36 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         loginAction()
     }
     
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        print("masuk ko")
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.stackView.frame.origin.y == 20 {
+//                print("masuk juga ko")
+//                self.stackView.frame.origin.y -= (0.5 * keyboardSize.height)
+//            }
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        if self.stackView.frame.origin.y != 20 {
+//            self.stackView.frame.origin.y = 20
+//        }
+//    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
+        print(view.frame.origin.y)
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.stackView.frame.origin.y == 20 {
-                self.stackView.frame.origin.y -= (0.5 * keyboardSize.height)
+            if self.view.frame.origin.y == 0.0 {
+                print("masuk ga sih")
+                self.view.frame.origin.y -= (0.5 * keyboardSize.height)
             }
         }
     }
-    
+
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.stackView.frame.origin.y != 20 {
-            self.stackView.frame.origin.y = 20
+        print(view.frame.origin.y)
+        if self.view.frame.origin.y != 0.0 {
+            self.view.frame.origin.y = 0.0
         }
     }
     
@@ -147,7 +172,6 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             switch res {
             case .success(let data):
                 self.user = data.0
-                print(data, "DADATA")
                 if data.0?.access_token != nil {
                     DispatchQueue.main.async {
                         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? ViewController {
@@ -158,9 +182,8 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
                         }
                     }
                 } else {
-                    let alertController = MDCAlertController(title: "Error", message: data.3?.message!)
-                    let action = MDCAlertAction(title:"OK") { (action) in print("OK") }
                     alertController.addAction(action)
+                    alertController.message = data.3?.message!
                     DispatchQueue.main.async {
                         self.layerTop.isHidden = true
                         self.present(alertController, animated:true, completion: nil)

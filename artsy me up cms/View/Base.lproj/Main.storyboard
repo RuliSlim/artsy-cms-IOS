@@ -52,10 +52,14 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Ay1-PL-z8l">
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" id="Wge-v6-cMp">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MR9-Q9-riH">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MR9-Q9-riH">
+                                <rect key="frame" x="372.33333333333331" y="11" width="21.666666666666686" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
                                 <connections>
                                     <action selector="goToAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tpe-tK-LZM"/>
                                 </connections>
@@ -125,7 +129,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="luL-56-jh2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="LCw-D4-5QW"/>
+                <tapGestureRecognizer id="LCw-D4-5QW">
+                    <connections>
+                        <action selector="tapToView:" destination="fdF-GK-CL8" id="B7G-2w-kQX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4742" y="880"/>
         </scene>
@@ -179,4 +187,7 @@
             <point key="canvasLocation" x="3863" y="881"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
 </document>

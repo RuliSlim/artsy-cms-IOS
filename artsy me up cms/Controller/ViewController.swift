@@ -52,8 +52,12 @@ class ViewController: UIViewController {
         itemTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @IBAction func goToAdd(_ sender: Any) {
-        let addProduct = AddViewController(nibName: "AddViewController", bundle: nil)
+        let addProduct = AddViewController()
         addProduct.user = self.user
         self.navigationController?.pushViewController(addProduct, animated: true)
     }
