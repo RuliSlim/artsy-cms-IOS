@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomePageVC: UIViewController {
     @IBOutlet weak var itemTableView: UITableView!
     
     var products: [Product] = []

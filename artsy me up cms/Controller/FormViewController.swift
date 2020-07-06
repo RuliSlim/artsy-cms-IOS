@@ -18,10 +18,10 @@ import MaterialComponents.MaterialButtons
 class FormViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var showImage: UIImageView!
-    @IBOutlet weak var stackLabel: UIStackView!
+    @IBOutlet weak var container: UIView!
     
     private let imgur = ImgurUploader(clientID: "1b22dd0c6d6e14a")
-    var authKeyboard: AuthKeyboardHandler = AuthKeyboardHandler()
+
     var user: User!
     var product: Product?
     var isEdit: Bool?
@@ -38,8 +38,12 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         super.viewDidLoad()
         
         setStack()
-        authKeyboard.view = view
-        authKeyboard.notificationCenterHandler()
+        name.delegate = self
+        price.delegate = self
+        stock.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
         
         guard product != nil else { return }
         name.text = product!.name
@@ -47,6 +51,10 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         stock.text = String(product!.stock)
         image.text = product!.image.absoluteString
         showImage.load(url: product!.image)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.bindToKeyboard()
     }
     
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
@@ -66,7 +74,11 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         indicator.startAnimating()
         
         view.addSubview(indicator)
@@ -93,7 +105,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         })
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    internal func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
         indicator.stopAnimating()
         showImage.isHidden = false
@@ -132,7 +144,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
             switch res {
             case .success(_):
                 DispatchQueue.main.async {
-                    let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? ViewController
+                    let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? HomePageVC
                     indicator.stopAnimating()
                     guard viewController != nil else { return }
                     viewController?.user = self.user
@@ -144,7 +156,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         }
     }
     
-    func setStack() -> Void {
+    private func setStack() -> Void {
         CustomTextField.setTextField(name, "name", 0)
         CustomTextField.setTextField(price, "price", 1)
         CustomTextField.setTextField(stock, "stock", 2)
@@ -159,29 +171,35 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate & UI
         button.sizeToFit()
         button.addTarget(self, action: #selector(submitButton(_:)), for: .touchDown)
         
-        stackLabel.addArrangedSubview(name)
-        stackLabel.addArrangedSubview(price)
-        stackLabel.addArrangedSubview(stock)
-        stackLabel.addArrangedSubview(button)
+        container.addSubview(name)
+        container.addSubview(price)
+        container.addSubview(stock)
+        container.addSubview(button)
         
-        name.snp.makeConstraints { (make) in
-            make.width.equalTo(stackLabel)
-        }
-        price.snp.makeConstraints { (make) in
-            make.width.equalTo(stackLabel)
+        button.snp.makeConstraints { (make) in
+            make.bottom.equalTo(container).offset(-20)
+            make.leading.equalTo(container).offset(20)
+            make.trailing.equalTo(container).offset(-20)
         }
         stock.snp.makeConstraints { (make) in
-            make.width.equalTo(stackLabel)
+            make.bottom.equalTo(button).offset(-20 - button.frame.size.height)
+            make.leading.equalTo(container).offset(20)
+            make.trailing.equalTo(container).offset(-20)
         }
-        button.snp.makeConstraints { (make) in
-            make.width.equalTo(stackLabel)
+        price.snp.makeConstraints { (make) in
+            make.bottom.equalTo(stock).offset(-20 - button.frame.size.height)
+            make.leading.equalTo(container).offset(20)
+            make.trailing.equalTo(container).offset(-20)
         }
-        
-        stackLabel.alignment = .fill
-        stackLabel.distribution = .equalSpacing
+        name.snp.makeConstraints { (make) in
+            make.bottom.equalTo(price).offset(-20 - price.frame.size.height)
+            make.leading.equalTo(container).offset(20)
+            make.trailing.equalTo(container).offset(-20)
+        }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? MDCFilledTextField {
             nextField.becomeFirstResponder()
         } else {

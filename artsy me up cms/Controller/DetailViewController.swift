@@ -62,7 +62,7 @@ class DetailViewController: UIViewController {
             case .success(_):
                 DispatchQueue.main.async {
                     let board = UIStoryboard(name: "Main", bundle: nil)
-                    let homePage = board.instantiateViewController(withIdentifier: "list") as! ViewController
+                    let homePage = board.instantiateViewController(withIdentifier: "list") as! HomePageVC
                     homePage.user = self.user
                     self.navigationController?.pushViewController(homePage, animated: true)
                 }

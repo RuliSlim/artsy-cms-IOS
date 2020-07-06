@@ -26,43 +26,17 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-        CustomTextField.setTextField(email, "email", 0)
-        CustomTextField.setTextField(password, "password", 1)
         
-        email.delegate = self
-        password.delegate = self
+        // setings custom elements
+        setElements()
         
-        button.setTitle("Login", for: UIControl.State())
-        button.backgroundColor = .systemPink
-        button.titleLabel?.textColor = .black
-        button.sizeToFit()
-        button.addTarget(self, action: #selector(submitLogin(_:)), for: .touchDown)
-        
-        stackView.addArrangedSubview(email)
-        stackView.addArrangedSubview(password)
-        stackView.addArrangedSubview(button)
-        
-        email.snp.makeConstraints { (make) in
-            make.width.equalTo(stackView)
-        }
-        password.snp.makeConstraints { (make) in
-            make.width.equalTo(stackView)
-        }
-        button.snp.makeConstraints { (make) in
-            make.width.equalTo(stackView)
-        }
-        
-        stackView.alignment = .fill
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 0
+        // move when keyboard showed up
+        stackView.bindToKeyboard()
         
         email.addTarget(self, action: #selector(checkingEmail), for: UIControl.Event.editingChanged)
         password.addTarget(self, action: #selector(checkingEmail), for: UIControl.Event.editingChanged)
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
     @IBAction func tapToView(_ sender: UITapGestureRecognizer) {
         email.resignFirstResponder()
         password.resignFirstResponder()
@@ -74,8 +48,9 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             if status {
                 email.leadingAssistiveLabel.text = ""
             } else {
+                email.setLeadingAssistiveLabelColor(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), for: .editing)
+                email.setLeadingAssistiveLabelColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
                 email.leadingAssistiveLabel.text = "please input valid email address"
-                email.leadingAssistiveLabel.textColor = UIColor.red
             }
         }
     }
@@ -95,7 +70,40 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         loginAction()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    private func setElements() {
+        CustomTextField.setTextField(email, "email", 0)
+        CustomTextField.setTextField(password, "password", 1)
+        
+        email.delegate = self
+        password.delegate = self
+        
+        button.setTitle("Login", for: UIControl.State())
+        button.backgroundColor = .systemPink
+        button.titleLabel?.textColor = .black
+        button.sizeToFit()
+        button.frame.size.width = 50
+        button.addTarget(self, action: #selector(submitLogin(_:)), for: .touchDown)
+        
+        stackView.addArrangedSubview(email)
+        stackView.addArrangedSubview(password)
+        stackView.addArrangedSubview(button)
+        
+        email.snp.makeConstraints { (make) in
+            make.width.equalTo(stackView)
+        }
+        password.snp.makeConstraints { (make) in
+            make.width.equalTo(stackView)
+        }
+        button.snp.makeConstraints { (make) in
+            make.width.equalTo(stackView)
+        }
+        
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
+    }
+    
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? MDCFilledTextField {
             nextField.becomeFirstResponder()
         } else {
@@ -105,7 +113,7 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         return false
     }
     
-    func loginAction() {
+    private func loginAction() {
         let loginData: Login = Login(email: email.text!, password: password.text!)
         let Login: ApiCall = ApiCall(method: "POST", endPoint: "login", data: (loginData, nil), type: .user, header: nil)
         Login.getData() { (res) in
@@ -113,7 +121,7 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             case .success(let data):
                 if data.0?.access_token != nil {
                     DispatchQueue.main.async {
-                        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? ViewController {
+                        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as? HomePageVC {
                             if let navigator = self.navigationController {
                                 viewController.user = data.0
                                 navigator.pushViewController(viewController, animated: true)
@@ -129,9 +137,14 @@ class LoginRegister: UIViewController, UITextViewDelegate, UITextFieldDelegate {
                         indicator.stopAnimating()
                     }
                 }
-            case .failure(let err):
-                self.layerTop.isHidden = true
-                print("Failed to fetch courses:", err)
+            case .failure(_):
+                alertController.addAction(action)
+                alertController.message = "Failed to fetch"
+                DispatchQueue.main.async {
+                    self.layerTop.isHidden = true
+                    self.present(alertController, animated: true, completion: nil)
+                    indicator.stopAnimating()
+                }
             }
         }
     }

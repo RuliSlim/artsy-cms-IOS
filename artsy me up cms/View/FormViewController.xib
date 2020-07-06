@@ -9,8 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FormViewController" customModule="artsy_me_up_cms" customModuleProvider="target">
             <connections>
+                <outlet property="container" destination="hNV-AJ-OFt" id="48a-Js-JMI"/>
                 <outlet property="showImage" destination="SPA-Si-Cox" id="6Xe-3m-Gcz"/>
-                <outlet property="stackLabel" destination="X4z-6y-cuk" id="qUH-Qy-Enh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,28 +19,35 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SPA-Si-Cox">
-                    <rect key="frame" x="30" y="74" width="354" height="403"/>
-                    <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <gestureRecognizers/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="Lbe-xS-vwY" appends="YES" id="KGB-V3-3nf"/>
-                    </connections>
-                </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X4z-6y-cuk">
-                    <rect key="frame" x="30" y="507" width="354" height="325"/>
-                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNV-AJ-OFt" userLabel="Container">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SPA-Si-Cox">
+                            <rect key="frame" x="50" y="20" width="314" height="300"/>
+                            <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="300" id="iDF-VB-Olg"/>
+                            </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="Lbe-xS-vwY" appends="YES" id="KGB-V3-3nf"/>
+                            </connections>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="SPA-Si-Cox" firstAttribute="top" secondItem="hNV-AJ-OFt" secondAttribute="top" constant="20" id="5yK-gu-5co"/>
+                        <constraint firstAttribute="trailing" secondItem="SPA-Si-Cox" secondAttribute="trailing" constant="50" id="Cqg-M9-YYo"/>
+                        <constraint firstItem="SPA-Si-Cox" firstAttribute="leading" secondItem="hNV-AJ-OFt" secondAttribute="leading" constant="50" id="lDd-OO-yk1"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="SPA-Si-Cox" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="CZ6-h9-BWI"/>
-                <constraint firstItem="X4z-6y-cuk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="EBJ-tJ-5Ux"/>
-                <constraint firstItem="SPA-Si-Cox" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="EIC-e7-Mbz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="X4z-6y-cuk" secondAttribute="bottom" constant="30" id="fuY-5l-gKf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X4z-6y-cuk" secondAttribute="trailing" constant="30" id="jFN-dH-qjP"/>
-                <constraint firstItem="X4z-6y-cuk" firstAttribute="top" secondItem="SPA-Si-Cox" secondAttribute="bottom" constant="30" id="nJM-Nm-geK"/>
-                <constraint firstItem="SPA-Si-Cox" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="p9I-qJ-c5Q"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SPA-Si-Cox" secondAttribute="trailing" constant="30" id="v8x-NR-97b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hNV-AJ-OFt" secondAttribute="trailing" id="QZS-oP-Ing"/>
+                <constraint firstAttribute="bottom" secondItem="hNV-AJ-OFt" secondAttribute="bottom" id="e7k-Z3-Gdp"/>
+                <constraint firstItem="hNV-AJ-OFt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gCO-OZ-fRe"/>
+                <constraint firstItem="hNV-AJ-OFt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="n40-3r-AIx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="122"/>
